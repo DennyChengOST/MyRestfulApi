@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{2DC470E6-567
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MyRetailService.Database", "MyRetailService.Database\MyRetailService.Database.sqlproj", "{BC9BC927-662C-4DAC-90CE-9FDED30272ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRetailService.DataModels", "MyRetailService.DataModels\MyRetailService.DataModels.csproj", "{E1DD444B-1434-4E58-968C-9EEAD8010684}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -169,6 +171,18 @@ Global
 		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Training|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Training|Any CPU.Build.0 = Debug|Any CPU
 		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Training|Any CPU.Deploy.0 = Debug|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Integration|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Integration|Any CPU.Build.0 = Release|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Production|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Production|Any CPU.Build.0 = Release|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Training|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Training|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,5 +190,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1342C9EC-6D6D-4A6F-98E8-0A6B8B290E36} = {CB96B6F2-69C4-4548-B1F7-8A9833CC8076}
 		{320D1E62-687D-4F7B-BDE1-A3FF7162A136} = {CB96B6F2-69C4-4548-B1F7-8A9833CC8076}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3556726A-3E96-44AF-A8F5-183D5609CA74}
 	EndGlobalSection
 EndGlobal
