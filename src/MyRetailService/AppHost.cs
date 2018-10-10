@@ -5,7 +5,6 @@ using ServiceStack.Api.Swagger;
 using ServiceStack.Text;
 using ServiceStack.Validation;
 using MyRetailService.ServiceDefinition;
-using MyRetailService.Validation;
 
 namespace MyRetailService
 {

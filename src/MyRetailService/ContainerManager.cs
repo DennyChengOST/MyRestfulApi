@@ -16,7 +16,9 @@ namespace MyRetailService
             container.RegisterValidators(ReuseScope.Container, typeof(ValidationInfo).Assembly);
 
             // Mapper
-            container.Register(c => MappingConfigurator.CreateMapper());
+            var mappingConfigurator = new MappingConfigurator();
+            var mappingConfiguration = mappingConfigurator.CreateMaps();
+            container.Register(c => mappingConfiguration.CreateMapper());
 
             // Repositories
             container.RegisterAs<ProductPricesRepository, IProductPricesRepository>();

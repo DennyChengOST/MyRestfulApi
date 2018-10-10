@@ -1,25 +1,27 @@
 using AutoMapper;
 using MyRetailService.DataModels;
 using MyRetailService.ServiceModel.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace MyRetailService
 {
-    public static class MappingConfigurator
+    public class MappingConfigurator
     {
-        public static IMapper CreateMapper()
+        #region IMappingConfigurator Implementation
+
+        public MapperConfiguration CreateMaps()
         {
             var config = new MapperConfiguration(mapperConfiguration =>
             {
                 MapServiceModelToDataModel(mapperConfiguration);
                 MapDataModelToServiceModel(mapperConfiguration);
             });
-            return config.CreateMapper();
 
+            return config;
         }
+
+        #endregion
+
+        #region Private Methods
 
         private static void MapServiceModelToDataModel(IProfileExpression mapperConfiguration)
         {
@@ -32,5 +34,7 @@ namespace MyRetailService
             mapperConfiguration.CreateMap<ProductDetailsModel, GetProductDetailsResponse>();
 
         }
+
+        #endregion
     }
 }
