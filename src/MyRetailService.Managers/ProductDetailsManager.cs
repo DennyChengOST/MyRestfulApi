@@ -1,12 +1,9 @@
+using System.Threading.Tasks;
+
 using MyRetailService.DataModels;
 using MyRetailService.Interfaces.Managers;
 using MyRetailService.Interfaces.Repositories;
 using MyRetailService.ServiceModel.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyRetailService.Managers
 {
@@ -14,16 +11,16 @@ namespace MyRetailService.Managers
     {
         #region Fields
 
-        private readonly IProductRepository _productPricesRepository;
+        private readonly IProductRepository _productRepository;
 
         private readonly IRedSkyRepository _redSkyRepository;
 
         #endregion
 
         #region Constructors
-        public ProductDetailsManager(IProductRepository productPricesRepository, IRedSkyRepository redSkyRepository)
+        public ProductDetailsManager(IProductRepository productRepository, IRedSkyRepository redSkyRepository)
         {
-            _productPricesRepository = productPricesRepository;
+            _productRepository = productRepository;
             _redSkyRepository = redSkyRepository;
         }
 
@@ -38,7 +35,7 @@ namespace MyRetailService.Managers
 
             Parallel.Invoke(
                 () => productName = _redSkyRepository.GetProductName(productDetailsModel.Id),
-                () => productPrice = _productPricesRepository.GetProductCurrentPrice(productDetailsModel.Id)
+                () => productPrice = _productRepository.GetProductCurrentPrice(productDetailsModel.Id)
                 );
             return string.IsNullOrWhiteSpace(productName)
                 ? null

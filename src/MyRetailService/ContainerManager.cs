@@ -24,8 +24,7 @@ namespace MyRetailService
             // Repositories
             container.RegisterAs<ProductRepository, IProductRepository>();
             container.RegisterAs<RedskyRepository, IRedSkyRepository>();
-            //funq containers
-            //online factory for IProdutPricesRepository
+            //TODO: Abstract connection to Webconfig
             container.Register<IProductRepository>(c => new ProductRepository(
                 new MongoClient("mongodb://localhost:27017"), "MyRetail", "Products"));
 

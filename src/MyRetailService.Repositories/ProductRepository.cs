@@ -23,14 +23,11 @@ namespace MyRetailService.Repositories
         #region Constructor
         public ProductRepository(IMongoClient mongoClient, string databaseName, string collectionName)
         {
-            //Inject mongo client into repository 
             _mongoClient = mongoClient;
 
             var database = _mongoClient.GetDatabase(databaseName);
-            //Need to figure out how to move this into a factory of some sort?
 
             _collection = database.GetCollection<BsonDocument>(collectionName);
-            //potentially want another collection of previous prices? Debating between ProductPrice vs ProductcurrentPrice
         }
 
         #endregion
@@ -41,6 +38,7 @@ namespace MyRetailService.Repositories
         {
             var getFilter = Builders<BsonDocument>.Filter.Eq("ProductId", requestId);
 
+            var test = _collection.Find(getFilter);
             var collection = _collection.Find(getFilter).First();
 
             return collection.IsBsonUndefined ||collection.IsBsonNull
@@ -61,7 +59,7 @@ namespace MyRetailService.Repositories
 
             return _collection.UpdateOne(getFilter, updateParameter);
             //Do I need to potentially account for user wanting to change Currency Code?
-            //just return 200
+            //just return 200 for success
         }
 
         #endregion

@@ -1,15 +1,12 @@
 
 using AutoFixture;
-using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using MyRetailService.DataModels;
 using MyRetailService.Interfaces.Repositories;
 using MyRetailService.Managers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MyRetailService.ServiceModel.Types;
+using Shouldly;
 
 namespace MyRetailService.Tests.UnitTests.Managers
 {
@@ -35,6 +32,7 @@ namespace MyRetailService.Tests.UnitTests.Managers
         {
             _fixture = new Fixture();
             _mockProductPricesRepository = new Mock<IProductRepository>();
+            _mockRedSkyRepository = new Mock<IRedSkyRepository>();
             _productDetailsManager = new ProductDetailsManager(_mockProductPricesRepository.Object, _mockRedSkyRepository.Object);
         }
 
@@ -43,6 +41,7 @@ namespace MyRetailService.Tests.UnitTests.Managers
         {
             _fixture = null;
             _mockProductPricesRepository = null;
+            _mockRedSkyRepository = null;
             _productDetailsManager = null;
         }
 
@@ -51,25 +50,49 @@ namespace MyRetailService.Tests.UnitTests.Managers
         #region Test Methods
 
         [TestMethod]
-        public void ReadByProductId_ProductNameExists_CallsRepositoryReturnsPopulatedModel()
+        public void ReadByProductId_ProductDataExists_CallsRepositoryReturnsPopulatedModel()
         {
             //Arrange
+            var productDetailsModel = _fixture.Create<ProductDetailsModel>();
+            var productId = productDetailsModel.Id;
+            var productName = _fixture.Create<string>();
+            var productPrice = _fixture.Create<ProductPrice>();
+
+            _mockRedSkyRepository.Setup(repository => repository.GetProductName(productId))
+                .Returns(productName);
+            _mockProductPricesRepository.Setup(repository => repository.GetProductCurrentPrice(productId))
+                .Returns(productPrice);
 
             //Act
+            var result = _productDetailsManager.ReadByProductId(productDetailsModel);
 
             //Assert
-            
+            result.Id.ShouldBe(productId);
+            result.Name.ShouldBe(productName);
+            result.CurrentPrice.ShouldBeSameAs(productPrice);
+            _mockRedSkyRepository.Verify(repository => repository.GetProductName(productId), Times.Once);
+            _mockProductPricesRepository.Verify(repository => repository.GetProductCurrentPrice(productId), Times.Once);
         }
 
         [TestMethod]
-        public void ReadByProductId_ProductNameDoesntExist_DoesntCallRepositoryReturnsError()
+        public void ReadByProductId_ProductNameDoesntExist_DoesntCallRepositoryReturnsNull()
         {
             //Arrange
+            var productDetailsModel = _fixture.Create<ProductDetailsModel>();
+            var productId = productDetailsModel.Id;
+            var productName = "";
+            var productPrice = _fixture.Create<ProductPrice>();
+
+            _mockRedSkyRepository.Setup(repository => repository.GetProductName(productId))
+                .Returns(productName);
+            _mockProductPricesRepository.Setup(repository => repository.GetProductCurrentPrice(productId))
+                .Returns(productPrice);
 
             //Act
+            var result = _productDetailsManager.ReadByProductId(productDetailsModel);
 
             //Assert
-
+            result.ShouldBeNull();
         }
 
         #endregion

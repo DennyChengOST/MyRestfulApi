@@ -34,7 +34,6 @@ namespace MyRetailService.ServiceDefinition
 
         public GetProductDetailsResponse Get(GetProductDetailsRequest request)
         {
-            //Is doing servicemodel/Datamodel too much complexity? D: 
             var readByProductIdRequest = _mapper.Map<ProductDetailsModel>(request);
             var readByProductIdResponse = _productDetailsManager.ReadByProductId(readByProductIdRequest);
             //manager not found or null* throw error* handle this error*
