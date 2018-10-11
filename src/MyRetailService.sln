@@ -18,8 +18,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRetailService.ServiceMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRetailService.Tests.UnitTests", "..\tests\MyRetailService.Tests.UnitTests\MyRetailService.Tests.UnitTests.csproj", "{1342C9EC-6D6D-4A6F-98E8-0A6B8B290E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRetailService.Tests.AcceptanceTests", "..\tests\MyRetailService.Tests.AcceptanceTests\MyRetailService.Tests.AcceptanceTests.csproj", "{320D1E62-687D-4F7B-BDE1-A3FF7162A136}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRetailService.Validation", "MyRetailService.Validation\MyRetailService.Validation.csproj", "{F12D8417-EDE5-42F8-8F88-55E2E9F376B2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{2DC470E6-5675-4871-BB90-8CA81346B917}"
@@ -30,8 +28,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{2DC470E6-567
 		..\README.md = ..\README.md
 		..\TriggerBuild.md = ..\TriggerBuild.md
 	EndProjectSection
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MyRetailService.Database", "MyRetailService.Database\MyRetailService.Database.sqlproj", "{BC9BC927-662C-4DAC-90CE-9FDED30272ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRetailService.DataModels", "MyRetailService.DataModels\MyRetailService.DataModels.csproj", "{E1DD444B-1434-4E58-968C-9EEAD8010684}"
 EndProject
@@ -129,18 +125,6 @@ Global
 		{1342C9EC-6D6D-4A6F-98E8-0A6B8B290E36}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1342C9EC-6D6D-4A6F-98E8-0A6B8B290E36}.Training|Any CPU.ActiveCfg = Training|Any CPU
 		{1342C9EC-6D6D-4A6F-98E8-0A6B8B290E36}.Training|Any CPU.Build.0 = Training|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Development|Any CPU.ActiveCfg = Development|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Development|Any CPU.Build.0 = Development|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Integration|Any CPU.ActiveCfg = Integration|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Integration|Any CPU.Build.0 = Integration|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Production|Any CPU.ActiveCfg = Production|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Production|Any CPU.Build.0 = Production|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Release|Any CPU.Build.0 = Release|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Training|Any CPU.ActiveCfg = Training|Any CPU
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136}.Training|Any CPU.Build.0 = Training|Any CPU
 		{F12D8417-EDE5-42F8-8F88-55E2E9F376B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F12D8417-EDE5-42F8-8F88-55E2E9F376B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F12D8417-EDE5-42F8-8F88-55E2E9F376B2}.Development|Any CPU.ActiveCfg = Debug|Any CPU
@@ -153,24 +137,6 @@ Global
 		{F12D8417-EDE5-42F8-8F88-55E2E9F376B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F12D8417-EDE5-42F8-8F88-55E2E9F376B2}.Training|Any CPU.ActiveCfg = Release|Any CPU
 		{F12D8417-EDE5-42F8-8F88-55E2E9F376B2}.Training|Any CPU.Build.0 = Release|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Development|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Development|Any CPU.Build.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Development|Any CPU.Deploy.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Integration|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Integration|Any CPU.Build.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Integration|Any CPU.Deploy.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Production|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Production|Any CPU.Build.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Production|Any CPU.Deploy.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Training|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Training|Any CPU.Build.0 = Debug|Any CPU
-		{BC9BC927-662C-4DAC-90CE-9FDED30272ED}.Training|Any CPU.Deploy.0 = Debug|Any CPU
 		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1DD444B-1434-4E58-968C-9EEAD8010684}.Development|Any CPU.ActiveCfg = Debug|Any CPU
@@ -189,7 +155,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1342C9EC-6D6D-4A6F-98E8-0A6B8B290E36} = {CB96B6F2-69C4-4548-B1F7-8A9833CC8076}
-		{320D1E62-687D-4F7B-BDE1-A3FF7162A136} = {CB96B6F2-69C4-4548-B1F7-8A9833CC8076}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3556726A-3E96-44AF-A8F5-183D5609CA74}
