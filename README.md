@@ -31,11 +31,11 @@ Please refer to [Microsoft/Windows](https://docs.mongodb.com/manual/tutorial/ins
 3. Once project is built make sure MyRetailService project is set for the start up project. If you are unsure just right click on MyRetailService project and select Set As Startup Project indicated by the little cog icon.
 4. Press IIS Express (Google Chrome)
 5. Select SwaggerUI under Plugin Links
-6. Select Products and you should see two routes /(GET/PUT)/Products{id}
-7. Select each route you want to test! 
-
-##### Data Used
-
-
+6. Select Products and you should see three routes **/(POST/GET/PUT)/Products{id**}
+7. **Select the POST route first** to populate the DB with the one product. I set the input param as a bool but you can send either True or False and it should still work.
+8. Test the two other routes GET/PUT using the set data below
+```
+{ "pid": 13860428, "title": "The Big Lebowski (Blu-ray)", "price": "13.49", "currencyCode": "USD" }
+```
 :turtle: Thank you to whoever is reviewing my code! I'm always open for feedback so please let me know how I can improve! Thank you!
 :pineapple::jack_o_lantern:
