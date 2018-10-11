@@ -25,13 +25,15 @@ namespace MyRetailService
 
         private static void MapServiceModelToDataModel(IProfileExpression mapperConfiguration)
         {
-            mapperConfiguration.CreateMap<GetProductDetailsRequest, ProductDetailsModel>();
+            mapperConfiguration.CreateMap<GetProductRequest, ProductDetailsModel>();
+            mapperConfiguration.CreateMap<PutUpdateProductPrice, ProductUpdateModel>()
+                .ForMember(target => target.Value, opt => opt.MapFrom(source => source.CurrentPrice.Value));
 
         }
 
         private static void MapDataModelToServiceModel(IProfileExpression mapperConfiguration)
         {
-            mapperConfiguration.CreateMap<ProductDetailsModel, GetProductDetailsResponse>();
+            mapperConfiguration.CreateMap<ProductDetailsModel, GetProductResponse>();
 
         }
 

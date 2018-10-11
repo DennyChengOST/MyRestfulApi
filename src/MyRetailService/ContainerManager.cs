@@ -30,7 +30,6 @@ namespace MyRetailService
 
             // Managers
             container.RegisterAs<ProductDetailsManager, IProductDetailsManager>();
-
         }
 
     }

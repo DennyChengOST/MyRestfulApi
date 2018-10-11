@@ -47,6 +47,11 @@ namespace MyRetailService.Managers
                 };   
         }
 
+        public void UpdateProductPrice(ProductUpdateModel productUpdateModel)
+        {
+            _productRepository.UpdateProductCurrentPrice(productUpdateModel.Id, productUpdateModel.Value);
+        }
+
         #endregion
     }
 }

@@ -1,9 +1,6 @@
-using MyRetailService.ServiceModel.Types;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using MyRetailService.ServiceModel.Types;
 
 namespace MyRetailService.Interfaces.Repositories
 {
@@ -11,6 +8,6 @@ namespace MyRetailService.Interfaces.Repositories
     {
         ProductPrice GetProductCurrentPrice(Int64 requestId);
 
-        object UpdateProductCurrentPrice(string requestId, decimal updatedPrice);
+        void UpdateProductCurrentPrice(Int64 requestId, decimal updatedPrice);
     }
 }

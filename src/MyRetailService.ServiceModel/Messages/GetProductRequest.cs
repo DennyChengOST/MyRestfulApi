@@ -15,7 +15,7 @@ namespace MyRetailService.ServiceModel.Messages
     Notes = "Supports getting product details for a given product Id",
     Summary = "Get product details by product id")]
     [DataContract]
-    public class GetProductDetailsRequest : IReturn<GetProductDetailsResponse>
+    public class GetProductRequest : IReturn<GetProductResponse>
         //getproductrequest**
     {
         #region Properties

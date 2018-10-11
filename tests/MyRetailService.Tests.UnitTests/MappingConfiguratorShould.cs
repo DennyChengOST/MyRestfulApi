@@ -34,10 +34,10 @@ namespace MyRetailService.Tests.UnitTests
         #region Test Methods
 
         [TestMethod]
-        public void Map_GetProductDetailsRequestToProductDetailsModel_MapsCorrectly()
+        public void Map_GetProductRequestToProductDetailsModel_MapsCorrectly()
         {
             // Arrange
-            var source = _fixture.Create<GetProductDetailsRequest>();
+            var source = _fixture.Create<GetProductRequest>();
 
             // Act
             var target = _mapper.Map<ProductDetailsModel>(source);
@@ -47,18 +47,32 @@ namespace MyRetailService.Tests.UnitTests
         }
 
         [TestMethod]
-        public void Map_ProductDetailsModelToGetProductDetailsResponse_MapsCorrectly()
+        public void Map_ProductDetailsModelToGetProductResponse_MapsCorrectly()
         {
             // Arrange
             var source = _fixture.Create<ProductDetailsModel>();
 
             // Act
-            var target = _mapper.Map<GetProductDetailsResponse>(source);
+            var target = _mapper.Map<GetProductResponse>(source);
 
             // Assert
             target.Id.ShouldBe(source.Id);
             target.Name.ShouldBe(source.Name);
             target.CurrentPrice.ShouldBeSameAs(source.CurrentPrice);
+        }
+
+        [TestMethod]
+        public void Map_PutUpdateProductPriceToProductUpdateModel()
+        {
+            //Arrange
+            var source = _fixture.Create<PutUpdateProductPrice>();
+
+            //Act
+            var target = _mapper.Map<ProductUpdateModel>(source);
+
+            //Assert
+            target.Id.ShouldBe(source.Id);
+            target.Value.ShouldBe(source.CurrentPrice.Value);
         }
 
         #endregion

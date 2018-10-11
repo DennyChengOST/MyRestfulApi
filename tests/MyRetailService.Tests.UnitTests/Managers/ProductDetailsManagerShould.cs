@@ -95,6 +95,19 @@ namespace MyRetailService.Tests.UnitTests.Managers
             result.ShouldBeNull();
         }
 
+        [TestMethod]
+        public void UpdateProductPrice_AllScenarios_CallsRepository()
+        {
+            //Arrange
+            var id = _fixture.Create<string>();
+            var updatedValue = _fixture.Create<decimal>();
+
+            //Act
+            //var result = _productDetailsManager.ReadByProductId(productDetailsModel);
+
+            //Assert
+            //result.ShouldBeNull();
+        }
         #endregion
     }
 }

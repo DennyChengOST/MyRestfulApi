@@ -12,6 +12,5 @@ namespace MyRetailService.ServiceModel.Messages
         public ResponseStatus ResponseStatus { get; set; }
 
         #endregion
-    ///Should I return the updated obj?
     }
 }

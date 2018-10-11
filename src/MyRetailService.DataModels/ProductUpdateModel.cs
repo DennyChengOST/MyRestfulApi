@@ -8,11 +8,11 @@ namespace MyRetailService.DataModels
 {
     public class ProductUpdateModel
     {
-        //Bad idea to make this generic to future proof needing to update anything on a item not just
-        //bad idea to flatten the ProductPrice layer and the item?
-        //price?
+        //Flatten out the obj from Product and ProductPrice level through automapper
+        //could easily add other properties we potentially want to edit
         public Int64 Id { get; set; }
 
         public decimal Value { get; set; }
+
     }
 }

@@ -1,13 +1,10 @@
+using ServiceStack;
+
 using AutoMapper;
+
 using MyRetailService.DataModels;
 using MyRetailService.Interfaces.Managers;
 using MyRetailService.ServiceModel.Messages;
-using ServiceStack;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyRetailService.ServiceDefinition
 {
@@ -32,22 +29,24 @@ namespace MyRetailService.ServiceDefinition
 
         #region Public Methods
 
-        public GetProductDetailsResponse Get(GetProductDetailsRequest request)
+        public GetProductResponse Get(GetProductRequest request)
         {
             var readByProductIdRequest = _mapper.Map<ProductDetailsModel>(request);
             var readByProductIdResponse = _productDetailsManager.ReadByProductId(readByProductIdRequest);
-            //manager not found or null* throw error* handle this error*
 
-            var getProductDetailsResponse = _mapper.Map<GetProductDetailsResponse>(readByProductIdResponse);
-            return getProductDetailsResponse;
+            var getProductResponse = _mapper.Map<GetProductResponse>(readByProductIdResponse);
+            return getProductResponse;
         }
 
-        //public PutUpdateProductPriceResponse Put(PutUpdateProductPrice request)
-        //{
-        //    var updateProductRequest = _mapper.Map<ProductUpdateModel>(request);
-        //    //manager call
-        //    //Potentially return product reponse should I also include the updated obj
-        //}
+        public PutUpdateProductPriceResponse Put(PutUpdateProductPrice request)
+        {
+            //TODO: Request validator to make properties required
+            var updateProductRequest = _mapper.Map<ProductUpdateModel>(request);
+
+            _productDetailsManager.UpdateProductPrice(updateProductRequest);
+
+            return new PutUpdateProductPriceResponse();
+        }
 
         #endregion
     }

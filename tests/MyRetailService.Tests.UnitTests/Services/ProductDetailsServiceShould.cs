@@ -55,25 +55,25 @@ namespace MyRetailService.Tests.UnitTests.Services
         public void Get_AllScenarios_CallsManager()
         {
             //Arrange
-            var getProductDetailsRequest = _fixture.Create<GetProductDetailsRequest>();
+            var getProductRequest = _fixture.Create<GetProductRequest>();
             var readProductIdRequest = _fixture.Create<ProductDetailsModel>();
             var readProductIdResponse = _fixture.Create<ProductDetailsModel>();
-            var getProductDetailsResponse = _fixture.Create<GetProductDetailsResponse>();
+            var getProductResponse = _fixture.Create<GetProductResponse>();
 
-            _mockMapper.Setup(mapper => mapper.Map<ProductDetailsModel>(getProductDetailsRequest))
+            _mockMapper.Setup(mapper => mapper.Map<ProductDetailsModel>(getProductRequest))
                 .Returns(readProductIdRequest);
             _mockProductDetailsManager.Setup(manager => manager.ReadByProductId(readProductIdRequest))
                 .Returns(readProductIdResponse);
-            _mockMapper.Setup(mapper => mapper.Map<GetProductDetailsResponse>(readProductIdResponse))
-                .Returns(getProductDetailsResponse);
+            _mockMapper.Setup(mapper => mapper.Map<GetProductResponse>(readProductIdResponse))
+                .Returns(getProductResponse);
 
             //Act
-            var response = _productDetailsService.Get(getProductDetailsRequest);
+            var response = _productDetailsService.Get(getProductRequest);
 
             //Assert
-            response.Id.ShouldBe(getProductDetailsResponse.Id);
-            response.Name.ShouldBe(getProductDetailsResponse.Name);
-            response.CurrentPrice.ShouldBeSameAs(getProductDetailsResponse.CurrentPrice);
+            response.Id.ShouldBe(getProductResponse.Id);
+            response.Name.ShouldBe(getProductResponse.Name);
+            response.CurrentPrice.ShouldBeSameAs(getProductResponse.CurrentPrice);
             _mockProductDetailsManager.Verify(manager => manager.ReadByProductId(readProductIdRequest), Times.Once);
         }
 

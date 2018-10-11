@@ -1,12 +1,11 @@
+using System;
+using System.Linq;
+
 using MongoDB.Bson;
 using MongoDB.Driver;
+
 using MyRetailService.Interfaces.Repositories;
 using MyRetailService.ServiceModel.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyRetailService.Repositories
 {
@@ -51,15 +50,13 @@ namespace MyRetailService.Repositories
 
         }
 
-        public object UpdateProductCurrentPrice(string requestId, decimal updatedPrice)
+        public void UpdateProductCurrentPrice(Int64 requestId, decimal updatedPrice)
         {
             var getFilter = Builders<BsonDocument>.Filter.Eq("ProductId", requestId);
 
             var updateParameter = Builders<BsonDocument>.Update.Set("Price", updatedPrice);
 
-            return _collection.UpdateOne(getFilter, updateParameter);
-            //Do I need to potentially account for user wanting to change Currency Code?
-            //just return 200 for success
+             _collection.UpdateOne(getFilter, updateParameter);
         }
 
         #endregion

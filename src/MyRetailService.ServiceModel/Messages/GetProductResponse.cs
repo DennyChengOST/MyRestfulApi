@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MyRetailService.ServiceModel.Messages
 {
     [DataContract]
-    public class GetProductDetailsResponse : IHasResponseStatus
+    public class GetProductResponse : IHasResponseStatus
     {
         #region IHasResponseStatus Implementation
 

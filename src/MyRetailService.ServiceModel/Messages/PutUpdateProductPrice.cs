@@ -1,3 +1,4 @@
+using MyRetailService.ServiceModel.Types;
 using ServiceStack;
 using System;
 using System.Runtime.Serialization;
@@ -13,11 +14,14 @@ namespace MyRetailService.ServiceModel.Messages
     {
         #region Properties
 
-        [DataMember(Order =1)]
+        [DataMember(Order = 1)]
         public Int64 Id { get; set; }
 
         [DataMember(Order = 2)]
-        public decimal UpdatedPrice { get; set; }
+        public string Name { get; set; }
+
+        [DataMember(Order = 3)]
+        public ProductPrice CurrentPrice { get; set; }
 
         #endregion
     }
