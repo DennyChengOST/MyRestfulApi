@@ -5,6 +5,7 @@ using MyRetailService.Repositories;
 using MyRetailService.Interfaces.Repositories;
 using MyRetailService.Interfaces.Managers;
 using MyRetailService.Managers;
+using MongoDB.Driver;
 
 namespace MyRetailService
 {
@@ -21,11 +22,16 @@ namespace MyRetailService
             container.Register(c => mappingConfiguration.CreateMapper());
 
             // Repositories
-            container.RegisterAs<ProductPricesRepository, IProductPricesRepository>();
+            container.RegisterAs<ProductRepository, IProductRepository>();
             container.RegisterAs<RedskyRepository, IRedSkyRepository>();
+            //funq containers
+            //online factory for IProdutPricesRepository
+            container.Register<IProductRepository>(c => new ProductRepository(
+                new MongoClient("mongodb://localhost:27017"), "MyRetail", "Products"));
 
             // Managers
             container.RegisterAs<ProductDetailsManager, IProductDetailsManager>();
+
         }
 
     }

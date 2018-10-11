@@ -50,16 +50,16 @@ namespace MyRetailService.Repositories.TestFoodStorage
             var client = new MongoClient(connectionString);
 
             //abstract out the DB
-            var database = client.GetDatabase("ProductPrices");
+            var database = client.GetDatabase("MyRetail");
 
-            var collection = database.GetCollection<BsonDocument>("ProductCurrentPrice");
+            var collection = database.GetCollection<BsonDocument>("Products");
 
 
             var testDocument = new BsonDocument()
             {
-                {"ProductId",135},
-                {"Value",351},
-                {"CurrencyCode", "CHN" }
+                {"ProductId",30},
+                {"Value", 49.04},
+                {"CurrencyCode", "USD" }
             };
 
             collection.InsertOne(testDocument);

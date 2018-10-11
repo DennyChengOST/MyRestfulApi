@@ -92,7 +92,7 @@
     <Compile Include="InterfacesAssemblyInfo.cs" />
     <Compile Include="Managers\IProductDetailsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IProductPricesRepository.cs" />
+    <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\IRedSkyRepository.cs" />
   </ItemGroup>
   <ItemGroup>

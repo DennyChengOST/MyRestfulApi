@@ -37,10 +37,18 @@ namespace MyRetailService.ServiceDefinition
             //Is doing servicemodel/Datamodel too much complexity? D: 
             var readByProductIdRequest = _mapper.Map<ProductDetailsModel>(request);
             var readByProductIdResponse = _productDetailsManager.ReadByProductId(readByProductIdRequest);
+            //manager not found or null* throw error* handle this error*
 
             var getProductDetailsResponse = _mapper.Map<GetProductDetailsResponse>(readByProductIdResponse);
             return getProductDetailsResponse;
         }
+
+        //public PutUpdateProductPriceResponse Put(PutUpdateProductPrice request)
+        //{
+        //    var updateProductRequest = _mapper.Map<ProductUpdateModel>(request);
+        //    //manager call
+        //    //Potentially return product reponse should I also include the updated obj
+        //}
 
         #endregion
     }

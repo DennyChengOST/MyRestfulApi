@@ -1,6 +1,7 @@
 using MyRetailService.DataModels;
 using MyRetailService.Interfaces.Managers;
 using MyRetailService.Interfaces.Repositories;
+using MyRetailService.ServiceModel.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,14 @@ namespace MyRetailService.Managers
     {
         #region Fields
 
-        private readonly IProductPricesRepository _productPricesRepository;
+        private readonly IProductRepository _productPricesRepository;
 
         private readonly IRedSkyRepository _redSkyRepository;
 
         #endregion
 
         #region Constructors
-        public ProductDetailsManager(IProductPricesRepository productPricesRepository, IRedSkyRepository redSkyRepository)
+        public ProductDetailsManager(IProductRepository productPricesRepository, IRedSkyRepository redSkyRepository)
         {
             _productPricesRepository = productPricesRepository;
             _redSkyRepository = redSkyRepository;
@@ -32,25 +33,21 @@ namespace MyRetailService.Managers
 
         public ProductDetailsModel ReadByProductId(ProductDetailsModel productDetailsModel)
         {
-            //Call out to HTTP GET for product name
-            var productName = _redSkyRepository.GetProductName(productDetailsModel.Id);
-            //Make sure productName exists and if so get the product price
-            if (!string.IsNullOrEmpty(productName))
+            string productName = null;
+            ProductPrice productPrice = null;
 
-            {
-                //nested conditional to check if productPrice is empty? or over doing it :|?
-                //MongoCall
-                var productPrice = _productPricesRepository.GetProductCurrentPrice(productDetailsModel.Id);
-                productDetailsModel.Name = productName;
-                productDetailsModel.CurrentPrice = productPrice;
-                return productDetailsModel;
-            }
-            else
-            {
-                //Better error message? or is this check even needed? D: 
-                productDetailsModel.Name = "Product name is not found";
-                return productDetailsModel;
-            }
+            Parallel.Invoke(
+                () => productName = _redSkyRepository.GetProductName(productDetailsModel.Id),
+                () => productPrice = _productPricesRepository.GetProductCurrentPrice(productDetailsModel.Id)
+                );
+            return string.IsNullOrWhiteSpace(productName)
+                ? null
+                : new ProductDetailsModel
+                {
+                    Name = productName,
+                    CurrentPrice = productPrice,
+                    Id = productDetailsModel.Id
+                };   
         }
 
         #endregion

@@ -10,32 +10,26 @@ using System.Threading.Tasks;
 
 namespace MyRetailService.Repositories
 {
-    public class ProductPricesRepository : IProductPricesRepository
+    public class ProductRepository : IProductRepository
     {
-        #region Constants
-
-        private const string ConnectionString = "mongodb://localhost:27017";
-
-        private const string ProductPricesDataBase = "ProductPrices";
-
-        private const string ProductCurrentPricesCollection = "ProductCurrentPrice";
-        #endregion
-
         #region Fields
 
         private readonly IMongoCollection<BsonDocument> _collection;
 
+        private IMongoClient _mongoClient;
+
         #endregion
 
         #region Constructor
-        public ProductPricesRepository()
+        public ProductRepository(IMongoClient mongoClient, string databaseName, string collectionName)
         {
-            var client = new MongoClient(ConnectionString);
+            //Inject mongo client into repository 
+            _mongoClient = mongoClient;
 
-            var database = client.GetDatabase(ProductPricesDataBase);
+            var database = _mongoClient.GetDatabase(databaseName);
             //Need to figure out how to move this into a factory of some sort?
 
-            _collection = database.GetCollection<BsonDocument>(ProductCurrentPricesCollection);
+            _collection = database.GetCollection<BsonDocument>(collectionName);
             //potentially want another collection of previous prices? Debating between ProductPrice vs ProductcurrentPrice
         }
 
@@ -48,18 +42,15 @@ namespace MyRetailService.Repositories
             var getFilter = Builders<BsonDocument>.Filter.Eq("ProductId", requestId);
 
             var collection = _collection.Find(getFilter).First();
-            if (!collection.IsBsonNull)
-            {
-                return new ProductPrice()
+
+            return collection.IsBsonUndefined ||collection.IsBsonNull
+                ? null
+                : new ProductPrice()
                 {
                     CurrencyCode = collection["CurrencyCode"].ToString(),
                     Value = collection["Value"].ToDecimal()
                 };
-            }
-            else
-            {
-                return new ProductPrice();
-            }
+
         }
 
         public object UpdateProductCurrentPrice(string requestId, decimal updatedPrice)
@@ -70,6 +61,7 @@ namespace MyRetailService.Repositories
 
             return _collection.UpdateOne(getFilter, updateParameter);
             //Do I need to potentially account for user wanting to change Currency Code?
+            //just return 200
         }
 
         #endregion

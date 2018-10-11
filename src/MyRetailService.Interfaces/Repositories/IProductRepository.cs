@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyRetailService.Interfaces.Repositories
 {
-    public interface IProductPricesRepository
+    public interface IProductRepository
     {
         ProductPrice GetProductCurrentPrice(Int64 requestId);
 

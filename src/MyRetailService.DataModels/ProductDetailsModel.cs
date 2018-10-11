@@ -14,5 +14,6 @@ namespace MyRetailService.DataModels
         public string Name { get; set; }
 
         public ProductPrice CurrentPrice { get; set; }
+        //generic class with enums for currency types
     }
 }

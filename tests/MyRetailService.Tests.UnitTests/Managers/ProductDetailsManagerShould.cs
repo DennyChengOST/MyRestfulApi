@@ -20,7 +20,7 @@ namespace MyRetailService.Tests.UnitTests.Managers
 
         private Fixture _fixture;
 
-        private Mock<IProductPricesRepository> _mockProductPricesRepository;
+        private Mock<IProductRepository> _mockProductPricesRepository;
 
         private Mock<IRedSkyRepository> _mockRedSkyRepository;
 
@@ -34,7 +34,7 @@ namespace MyRetailService.Tests.UnitTests.Managers
         public void Initialize()
         {
             _fixture = new Fixture();
-            _mockProductPricesRepository = new Mock<IProductPricesRepository>();
+            _mockProductPricesRepository = new Mock<IProductRepository>();
             _productDetailsManager = new ProductDetailsManager(_mockProductPricesRepository.Object, _mockRedSkyRepository.Object);
         }
 

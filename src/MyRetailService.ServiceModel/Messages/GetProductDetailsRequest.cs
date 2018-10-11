@@ -16,11 +16,13 @@ namespace MyRetailService.ServiceModel.Messages
     Summary = "Get product details by product id")]
     [DataContract]
     public class GetProductDetailsRequest : IReturn<GetProductDetailsResponse>
+        //getproductrequest**
     {
         #region Properties
 
         [DataMember(Order = 1)]
         public Int64 Id { get; set; }
+        //
 
         #endregion
     }

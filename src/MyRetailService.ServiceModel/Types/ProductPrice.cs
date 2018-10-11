@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace MyRetailService.ServiceModel.Types
 {
+    //public enum CurrencyTypes
+    //{
+    //    USD,
+    //    CAD
+    //} generic classses/types
     public class ProductPrice
     {
         [DataMember(Order = 1)]
@@ -14,5 +19,6 @@ namespace MyRetailService.ServiceModel.Types
 
         [DataMember(Order = 2)]
         public string CurrencyCode { get; set; }
+
     }
 }
