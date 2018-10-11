@@ -109,6 +109,18 @@ namespace MyRetailService.Tests.UnitTests.Managers
             _mockProductPricesRepository.Verify(repository => repository.UpdateProductCurrentPrice(productUpdateModel.Id, productUpdateModel.Value), Times.Once);
         }
 
+        [TestMethod]
+        public void PopulateDatabase_AllScenarios_CallsRepository()
+        {
+            //Arrange
+
+            //Act
+            _productDetailsManager.PopulateDatabase();
+
+            //Assert
+            _mockProductPricesRepository.Verify(repository => repository.PopulateDatabaseWithProduct(), Times.Once);
+        }
+
         #endregion
     }
 }

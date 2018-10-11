@@ -90,6 +90,27 @@ namespace MyRetailService.Tests.UnitTests.Repositories
 
         }
 
+        [TestMethod]
+        public void UpdateProductCurrentPrice_ValidRequest_CallsCollection()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [TestMethod]
+        public void PopulateDataBasewithProduct_RequestMade_CallsCollection()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+
+        }
+
         #endregion
     }
 }

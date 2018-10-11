@@ -94,6 +94,19 @@ namespace MyRetailService.Tests.UnitTests.Services
             _mockProductDetailsManager.Verify(manager => manager.UpdateProductPrice(updateProductRequest), Times.Once);
         }
 
+        [TestMethod]
+        public void Post_AllScenarios_CallsManager()
+        {
+            //Arrange
+            var postPopulateDatabaseRequest = _fixture.Create<PostPopulateDatabase>();
+
+            //Act
+            _productDetailsService.Post(postPopulateDatabaseRequest);
+
+            //Assert
+            _mockProductDetailsManager.Verify(manager => manager.PopulateDatabase(), Times.Once);
+        }
+
         #endregion
     }
 }
