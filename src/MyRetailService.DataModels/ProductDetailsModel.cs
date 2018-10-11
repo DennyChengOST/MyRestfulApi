@@ -1,9 +1,6 @@
-using MyRetailService.ServiceModel.Types;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using MyRetailService.ServiceModel.Types;
 
 namespace MyRetailService.DataModels
 {
@@ -14,6 +11,5 @@ namespace MyRetailService.DataModels
         public string Name { get; set; }
 
         public ProductPrice CurrentPrice { get; set; }
-        //generic class with enums for currency types
     }
 }

@@ -1,10 +1,13 @@
-using FluentAssertions;
-using Funq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MyRetailService.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using FluentAssertions;
+using Funq;
+
+using MyRetailService.Interfaces;
+
 
 namespace MyRetailService.Tests.UnitTests
 {

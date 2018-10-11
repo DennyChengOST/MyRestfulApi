@@ -1,14 +1,15 @@
-using MyRetailService.ServiceModel.Types;
 using ServiceStack;
 using System;
 using System.Runtime.Serialization;
+
+using MyRetailService.ServiceModel.Types;
 
 namespace MyRetailService.ServiceModel.Messages
 {
     [Route("/Products/{Id}",
     Verbs = "PUT",
-    Notes = "Supports updating price for a given product Id",
-    Summary = "Put updating product price by product id")]
+    Notes = "Supports updating a product for a given product Id",
+    Summary = "Put updating product by product id")]
     [DataContract]
     public class PutUpdateProductPrice : IReturn<PutUpdateProductPriceResponse>
     {

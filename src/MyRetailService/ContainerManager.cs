@@ -1,11 +1,13 @@
-using Funq;
 using ServiceStack.Validation;
+
+using Funq;
+using MongoDB.Driver;
+
 using MyRetailService.Validation;
 using MyRetailService.Repositories;
 using MyRetailService.Interfaces.Repositories;
 using MyRetailService.Interfaces.Managers;
 using MyRetailService.Managers;
-using MongoDB.Driver;
 
 namespace MyRetailService
 {
@@ -13,7 +15,7 @@ namespace MyRetailService
     {
         public static void Register(Container container)
         {
-            // add service validation
+            // ToDO: add service validation
             container.RegisterValidators(ReuseScope.Container, typeof(ValidationInfo).Assembly);
 
             // Mapper

@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Linq;
 using System.Xml.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using MyRetailService.Tests.UnitTests.Helpers;
 
 namespace MyRetailService.Tests.UnitTests

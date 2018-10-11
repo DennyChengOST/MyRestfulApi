@@ -1,4 +1,5 @@
 using AutoMapper;
+
 using MyRetailService.DataModels;
 using MyRetailService.ServiceModel.Messages;
 

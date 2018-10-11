@@ -1,12 +1,13 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using AutoFixture;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Shouldly;
+
 using MyRetailService.DataModels;
 using MyRetailService.Interfaces.Repositories;
 using MyRetailService.Managers;
 using MyRetailService.ServiceModel.Types;
-using Shouldly;
 
 namespace MyRetailService.Tests.UnitTests.Managers
 {
@@ -75,7 +76,7 @@ namespace MyRetailService.Tests.UnitTests.Managers
         }
 
         [TestMethod]
-        public void ReadByProductId_ProductNameDoesntExist_DoesntCallRepositoryReturnsNull()
+        public void ReadByProductId_ProductNameDoesntExist_ReturnsNull()
         {
             //Arrange
             var productDetailsModel = _fixture.Create<ProductDetailsModel>();
@@ -99,15 +100,15 @@ namespace MyRetailService.Tests.UnitTests.Managers
         public void UpdateProductPrice_AllScenarios_CallsRepository()
         {
             //Arrange
-            var id = _fixture.Create<string>();
-            var updatedValue = _fixture.Create<decimal>();
+            var productUpdateModel = _fixture.Create<ProductUpdateModel>();
 
             //Act
-            //var result = _productDetailsManager.ReadByProductId(productDetailsModel);
+            _productDetailsManager.UpdateProductPrice(productUpdateModel);
 
             //Assert
-            //result.ShouldBeNull();
+            _mockProductPricesRepository.Verify(repository => repository.UpdateProductCurrentPrice(productUpdateModel.Id, productUpdateModel.Value), Times.Once);
         }
+
         #endregion
     }
 }

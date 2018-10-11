@@ -1,12 +1,6 @@
 using ServiceStack;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Security;
 
 namespace MyRetailService.ServiceModel.Messages
 {
@@ -16,13 +10,11 @@ namespace MyRetailService.ServiceModel.Messages
     Summary = "Get product details by product id")]
     [DataContract]
     public class GetProductRequest : IReturn<GetProductResponse>
-        //getproductrequest**
     {
         #region Properties
 
         [DataMember(Order = 1)]
         public Int64 Id { get; set; }
-        //
 
         #endregion
     }

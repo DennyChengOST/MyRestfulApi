@@ -77,6 +77,23 @@ namespace MyRetailService.Tests.UnitTests.Services
             _mockProductDetailsManager.Verify(manager => manager.ReadByProductId(readProductIdRequest), Times.Once);
         }
 
+        [TestMethod]
+        public void Put_AllScenarios_CallsManager()
+        {
+            //Arrange
+            var putUpdateProductPriceRequest = _fixture.Create<PutUpdateProductPrice>();
+            var updateProductRequest = _fixture.Create<ProductUpdateModel>();
+
+            _mockMapper.Setup(mapper => mapper.Map<ProductUpdateModel>(putUpdateProductPriceRequest))
+                .Returns(updateProductRequest);
+
+            //Act
+            _productDetailsService.Put(putUpdateProductPriceRequest);
+
+            //Assert
+            _mockProductDetailsManager.Verify(manager => manager.UpdateProductPrice(updateProductRequest), Times.Once);
+        }
+
         #endregion
     }
 }

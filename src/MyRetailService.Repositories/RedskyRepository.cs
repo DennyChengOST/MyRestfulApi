@@ -1,9 +1,6 @@
-using MyRetailService.Interfaces.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using MyRetailService.Interfaces.Repositories;
 
 namespace MyRetailService.Repositories
 {
@@ -36,6 +33,7 @@ namespace MyRetailService.Repositories
         {
             return "The Big Lebowski (Blu-ray)(WideScreen)";
         }
+
         #endregion
     }
 }
