@@ -81,6 +81,8 @@
   <ItemGroup>
     <Compile Include="Messages\GetProductRequest.cs" />
     <Compile Include="Messages\GetProductResponse.cs" />
+    <Compile Include="Messages\PostPopulateDatabase.cs" />
+    <Compile Include="Messages\PostPopulateDatabaseResponse.cs" />
     <Compile Include="Messages\PutUpdateProductPrice.cs" />
     <Compile Include="Messages\PutUpdateProductPriceResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

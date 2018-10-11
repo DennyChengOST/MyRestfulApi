@@ -28,11 +28,6 @@ namespace MyRetailService.Tests.UnitTests
                 var interfacesAssembly = interfacesAssemblyInfoType.Assembly;
                 var interfacesNamespace = interfacesAssemblyInfoType.Namespace;
 
-                var interfacesThatDoNotNeedToBeRegistered = new[]
-                {
-                    typeof(IExampleInterface)
-                };
-
                 //var expectedGenericInterfaces = new[]
                 //{
                 //    typeof(IExampleGenericInterface<ExampleType>)
@@ -46,8 +41,7 @@ namespace MyRetailService.Tests.UnitTests
                     .Where(type =>
                         type.IsInterface &&
                         !type.IsGenericType &&
-                        type.Namespace.StartsWith(interfacesNamespace))
-                    .Except(interfacesThatDoNotNeedToBeRegistered);
+                        type.Namespace.StartsWith(interfacesNamespace));
 
                 //  .Union(expectedGenericInterfaces);
 

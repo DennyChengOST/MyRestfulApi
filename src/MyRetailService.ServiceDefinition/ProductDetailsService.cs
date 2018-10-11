@@ -48,6 +48,12 @@ namespace MyRetailService.ServiceDefinition
             return new PutUpdateProductPriceResponse();
         }
 
+        public PostPopulateDatabaseResponse Post(PostPopulateDatabase request)
+        {
+            _productDetailsManager.PopulateDatabase();
+
+            return new PostPopulateDatabaseResponse();
+        }
         #endregion
     }
 }

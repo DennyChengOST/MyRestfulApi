@@ -9,5 +9,7 @@ namespace MyRetailService.Interfaces.Repositories
         ProductPrice GetProductCurrentPrice(Int64 requestId);
 
         void UpdateProductCurrentPrice(Int64 requestId, decimal updatedPrice);
+
+        void PopulateDatabaseWithProduct();
     }
 }

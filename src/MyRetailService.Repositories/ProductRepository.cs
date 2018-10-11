@@ -54,9 +54,23 @@ namespace MyRetailService.Repositories
         {
             var getFilter = Builders<BsonDocument>.Filter.Eq("ProductId", requestId);
 
-            var updateParameter = Builders<BsonDocument>.Update.Set("Price", updatedPrice);
+            var updateParameter = Builders<BsonDocument>.Update.Set("Value", updatedPrice);
 
              _collection.UpdateOne(getFilter, updateParameter);
+        }
+
+        public void PopulateDatabaseWithProduct()
+        {
+            var product = new BsonDocument()
+            {
+                {"ProductId",13860428},
+                {"Value", 13.49},
+                {"CurrencyCode", "USD" }
+            };
+            //I want add more in the future if we need a bigger set to test against
+            //but see issues not having a physical internal resource (Redsky) to call into
+            //and actually get unique product names
+            _collection.InsertOne(product);
         }
 
         #endregion

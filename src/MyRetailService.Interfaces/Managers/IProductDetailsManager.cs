@@ -7,5 +7,7 @@ namespace MyRetailService.Interfaces.Managers
         ProductDetailsModel ReadByProductId(ProductDetailsModel productDetailsModel);
 
         void UpdateProductPrice(ProductUpdateModel productUpdateModel);
+
+        void PopulateDatabase();
     }
 }
